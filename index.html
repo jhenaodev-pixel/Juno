@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Para ti, en tu día especial 🌸</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Montserrat:wght@300;400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ░░ FLOATING PETALS BACKGROUND ░░ -->
+  <div class="petals-container" id="petals"></div>
+
+  <!-- ░░ COUNTDOWN SCREEN ░░ -->
+  <section class="screen" id="screen-countdown">
+    <div class="countdown-wrapper">
+      <p class="pre-label">algo especial te espera</p>
+      <h1 class="main-title">Tu sorpresa llegará pronto</h1>
+      <p class="sub-label">El 29 de abril todo se revelará...</p>
+
+      <div class="countdown-grid">
+        <div class="countdown-unit">
+          <span class="count-num" id="days">00</span>
+          <span class="count-lbl">días</span>
+        </div>
+        <div class="countdown-sep">:</div>
+        <div class="countdown-unit">
+          <span class="count-num" id="hours">00</span>
+          <span class="count-lbl">horas</span>
+        </div>
+        <div class="countdown-sep">:</div>
+        <div class="countdown-unit">
+          <span class="count-num" id="minutes">00</span>
+          <span class="count-lbl">minutos</span>
+        </div>
+        <div class="countdown-sep">:</div>
+        <div class="countdown-unit">
+          <span class="count-num" id="seconds">00</span>
+          <span class="count-lbl">segundos</span>
+        </div>
+      </div>
+
+      <p class="waiting-msg">✦ Vuelve el 29 de abril para descubrir tu regalo ✦</p>
+    </div>
+  </section>
+
+  <!-- ░░ BIRTHDAY SCREEN ░░ -->
+  <section class="screen hidden" id="screen-birthday">
+
+    <!-- Header -->
+    <header class="birthday-header">
+      <p class="greeting-small">feliz cumpleaños,</p>
+      <h1 class="birthday-title" id="cfg-name"></h1>
+      <div class="header-divider">
+        <span>✦</span>
+        <div class="divider-line"></div>
+        <span>✦</span>
+      </div>
+    </header>
+
+    <!-- Envelope -->
+    <div class="envelope-scene" id="envelope-scene">
+      <div class="envelope" id="envelope" onclick="openEnvelope()">
+        <div class="env-back"></div>
+        <div class="env-body">
+          <div class="env-seal">
+            <span class="seal-icon">🌸</span>
+          </div>
+        </div>
+        <div class="env-flap" id="env-flap"></div>
+        <div class="env-left-fold"></div>
+        <div class="env-right-fold"></div>
+        <p class="tap-hint" id="tap-hint">Toca para abrir ✦</p>
+      </div>
+
+      <!-- Letter (hidden until envelope opens) -->
+      <div class="letter-container hidden" id="letter">
+        <div class="letter-paper">
+          <div class="letter-inner">
+            <p class="letter-date" id="cfg-date">29 de Abril, 2025</p>
+            <h2 class="letter-title" id="cfg-letter-title">Mi persona favorita,</h2>
+            <div class="letter-body" id="cfg-letter-body">
+              <p>Ninguna batalla librada en este mundo ha sido tan agónica como esta: mirarte a los ojos y no caer rendido, no doblar la rodilla, no confesarlo todo. Pero es una derrota inevitable, una que no temo, que en mis sueños más íntimos busco y repito y anhelo.</p>
+              <p>La esperanza enmarca mis días y la melancolía se instala en mi pecho como el eco de un nombre que no puedo callar. No existe sinfonía más perfecta, ni oda más digna a todo cuanto existe, que el milagro de tenerte cerca, tan cerca que me quema, tan cerca que respiro</p>
+              <p>Si algo es cierto en esta vida, es que Dios existe, y cuando te creó nos miró a todos con misericordia. Te puso en este mundo como la prueba de que la belleza no es solo un sueño, y el mundo, siempre, será mejor contigo en él. Eres la mayor fortuna que pudo darme.</p>
+              <p>Con todo el cariño del mundo, Henao ♡ — Feliz cumpleaños</p>
+            </div>
+            <p class="letter-closing" id="cfg-closing">Feliz día de</p>
+            <p class="letter-signature" id="cfg-signature">el ex que más te quiere🌸</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer flourish -->
+    <footer class="birthday-footer">
+      <p class="footer-quote">"En cada pétalo que cae, está escrito tu nombre"</p>
+    </footer>
+
+  </section>
+
+  <!-- ░░ MUSIC PLAYER ░░ -->
+  <div class="music-player hidden" id="music-player">
+    <div class="player-inner">
+      <div class="player-info">
+        <span class="note-icon">♪</span>
+        <span class="song-name" id="song-name">Tu canción especial</span>
+      </div>
+      <div class="player-controls">
+        <button class="ctrl-btn" id="btn-play" onclick="togglePlay()" title="Reproducir / Pausar">
+          <svg id="icon-play" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+          <svg id="icon-pause" viewBox="0 0 24 24" fill="currentColor" class="hidden"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>
+        </button>
+        <button class="ctrl-btn" onclick="nextSong()" title="Siguiente canción">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M6 18l8.5-6L6 6v12zm2-8.14L11.03 12 8 14.14V9.86zM16 6h2v12h-2z"/></svg>
+        </button>
+      </div>
+    </div>
+    <!-- Hidden audio element -->
+    <audio id="audio-player" preload="none"></audio>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
